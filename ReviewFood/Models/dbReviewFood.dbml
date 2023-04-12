@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ReviewFood" Class="dbReviewFoodDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=MSI\MSSQLSERVER2;Initial Catalog=ReviewFood;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="ReviewFoodConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.BinhLuan" Member="BinhLuans">
+    <Type Name="BinhLuan">
+      <Column Name="CommentID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Comment" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CommentDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MaDoAn" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="makh" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AnswerComment" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Rate" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="isLike" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="NguoiDung_BinhLuan" Member="NguoiDung" ThisKey="makh" OtherKey="makh" Type="NguoiDung" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QuanAn" Member="QuanAns">
+    <Type Name="QuanAn">
+      <Column Name="MaQuan" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenQuan" Type="System.String" DbType="NVarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="makh" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="QuanAn_DoAn" Member="DoAns" ThisKey="MaQuan,TenQuan" OtherKey="MaQuan,TenQuan" Type="DoAn" />
+      <Association Name="NguoiDung_QuanAn" Member="NguoiDung" ThisKey="makh" OtherKey="makh" Type="NguoiDung" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DoAn" Member="DoAns">
+    <Type Name="DoAn">
+      <Column Name="MaDoAn" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenDoAn" Type="System.String" DbType="NVarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaQuan" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenQuan" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="hinh" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="QuanAn_DoAn" Member="QuanAn" ThisKey="MaQuan,TenQuan" OtherKey="MaQuan,TenQuan" Type="QuanAn" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Favorite" Member="Favorites">
+    <Type Name="Favorite">
+      <Column Name="idyeuthich" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="tenquanyeuthich" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="makh" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="NguoiDung_Favorite" Member="NguoiDung" ThisKey="makh" OtherKey="makh" Type="NguoiDung" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NguoiDung" Member="NguoiDungs">
+    <Type Name="NguoiDung">
+      <Column Name="makh" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="hoten" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="tendangnhap" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="matkhau" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="diachi" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="dienthoai" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="ngaysinh" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="isChuQuan" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsAdmin" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="NguoiDung_BinhLuan" Member="BinhLuans" ThisKey="makh" OtherKey="makh" Type="BinhLuan" />
+      <Association Name="NguoiDung_QuanAn" Member="QuanAns" ThisKey="makh" OtherKey="makh" Type="QuanAn" />
+      <Association Name="NguoiDung_Favorite" Member="Favorites" ThisKey="makh" OtherKey="makh" Type="Favorite" />
+    </Type>
+  </Table>
+</Database>
