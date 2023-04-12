@@ -67,7 +67,7 @@ namespace ReviewFood.Controllers
             {
                 if (kh.tendangnhap == "supermouse0985")
                 {
-                    return RedirectToAction("Index", "BanPhim");
+                    return RedirectToAction("Index", "Home");
                 }
 
                 //ViewBag.ThongBao = "Dang nhap thanh cong!";

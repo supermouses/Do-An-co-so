@@ -149,6 +149,7 @@
       <LastGenOutput>dbReviewFood.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <None Include=".editorconfig" />
     <None Include="Models\dbReviewFood.dbml.layout">
       <DependentUpon>dbReviewFood.dbml</DependentUpon>
     </None>
@@ -179,6 +180,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\NguoiDung\DangKy.cshtml" />
     <Content Include="Views\NguoiDung\DangNhap.cshtml" />
+    <Content Include="Views\Home\Home.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

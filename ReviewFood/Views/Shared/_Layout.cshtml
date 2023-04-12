@@ -21,9 +21,32 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    @*<li>@Html.ActionLink("Login", "DangNhap", "NguoiDung")</li>
+            <li>@Html.ActionLink("SignUp", "DangKy", "NguoiDung")</li>*@
                 </ul>
+                @{
+                    var u = Session["TaiKhoan"] as ReviewFood.Models.NguoiDung;
+                }
+                @{
+                    if (u != null)
+                    {
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Xin chào @u.hoten <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li class="btn btn-light"><a href="/NguoiDung/DangXuat">Log off</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    }
+                    else
+                    {
+                        <ul class="nav navbar-nav navbar-right">
+                            <a class="btn btn-dark" href="/NguoiDung/DangKy"> Đăng ký</a>
+                            <a class="btn btn-light" href="/NguoiDung/Dangnhap"> Đăng nhập</a>
+                        </ul>
+                    }
+                }
             </div>
         </div>
     </div>
