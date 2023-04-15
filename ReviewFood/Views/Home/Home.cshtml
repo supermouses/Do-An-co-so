@@ -1,8 +1,25 @@
-﻿
+﻿@model IEnumerable<ReviewFood.Models.Post>
 @{
     ViewBag.Title = "Home";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Home</h2>
-
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-4 col-md-4 col-sm-8 col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel panel-heading">
+                   @item.CommentID  
+                    <p><strong>Tiêu đề: </strong>@item.tieude</p>
+                    <p><strong>Ngày cập nhật </strong>@item.ngaytailen</p>
+                    <p><strong> </strong>@item.noidung</p>
+                    <p><img src="@item.hinh" width="200" height="200" alt=" hinh thumbnail" /></p>
+                    <div class="panel-default">
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

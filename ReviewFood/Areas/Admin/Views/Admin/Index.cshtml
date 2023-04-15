@@ -1,0 +1,70 @@
+﻿@model IEnumerable<ReviewFood.Models.Post>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.tieude)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hinh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.noidung)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ngaytailen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.islikep)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CommentID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.makh)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.tieude)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hinh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.noidung)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ngaytailen)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.islikep)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CommentID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.makh)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PostID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PostID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PostID })
+        </td>
+    </tr>
+}
+
+</table>

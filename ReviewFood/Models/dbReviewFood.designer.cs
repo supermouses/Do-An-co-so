@@ -33,12 +33,9 @@ namespace ReviewFood.Models
     partial void InsertBinhLuan(BinhLuan instance);
     partial void UpdateBinhLuan(BinhLuan instance);
     partial void DeleteBinhLuan(BinhLuan instance);
-    partial void InsertQuanAn(QuanAn instance);
-    partial void UpdateQuanAn(QuanAn instance);
-    partial void DeleteQuanAn(QuanAn instance);
-    partial void InsertDoAn(DoAn instance);
-    partial void UpdateDoAn(DoAn instance);
-    partial void DeleteDoAn(DoAn instance);
+    partial void InsertPost(Post instance);
+    partial void UpdatePost(Post instance);
+    partial void DeletePost(Post instance);
     partial void InsertFavorite(Favorite instance);
     partial void UpdateFavorite(Favorite instance);
     partial void DeleteFavorite(Favorite instance);
@@ -85,19 +82,11 @@ namespace ReviewFood.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<QuanAn> QuanAns
+		public System.Data.Linq.Table<Post> Posts
 		{
 			get
 			{
-				return this.GetTable<QuanAn>();
-			}
-		}
-		
-		public System.Data.Linq.Table<DoAn> DoAns
-		{
-			get
-			{
-				return this.GetTable<DoAn>();
+				return this.GetTable<Post>();
 			}
 		}
 		
@@ -126,19 +115,17 @@ namespace ReviewFood.Models
 		
 		private long _CommentID;
 		
-		private string _Comment;
+		private int _makh;
+		
+		private string _Commentbody;
 		
 		private System.Nullable<System.DateTime> _CommentDate;
-		
-		private System.Nullable<int> _MaDoAn;
-		
-		private int _makh;
 		
 		private System.Nullable<long> _AnswerComment;
 		
 		private System.Nullable<int> _Rate;
 		
-		private System.Nullable<bool> _isLike;
+		private System.Nullable<bool> _like;
 		
 		private EntityRef<NguoiDung> _NguoiDung;
 		
@@ -148,20 +135,18 @@ namespace ReviewFood.Models
     partial void OnCreated();
     partial void OnCommentIDChanging(long value);
     partial void OnCommentIDChanged();
-    partial void OnCommentChanging(string value);
-    partial void OnCommentChanged();
-    partial void OnCommentDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnCommentDateChanged();
-    partial void OnMaDoAnChanging(System.Nullable<int> value);
-    partial void OnMaDoAnChanged();
     partial void OnmakhChanging(int value);
     partial void OnmakhChanged();
+    partial void OnCommentbodyChanging(string value);
+    partial void OnCommentbodyChanged();
+    partial void OnCommentDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnCommentDateChanged();
     partial void OnAnswerCommentChanging(System.Nullable<long> value);
     partial void OnAnswerCommentChanged();
     partial void OnRateChanging(System.Nullable<int> value);
     partial void OnRateChanged();
-    partial void OnisLikeChanging(System.Nullable<bool> value);
-    partial void OnisLikeChanged();
+    partial void OnlikeChanging(System.Nullable<bool> value);
+    partial void OnlikeChanged();
     #endregion
 		
 		public BinhLuan()
@@ -190,66 +175,6 @@ namespace ReviewFood.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Comment", DbType="NVarChar(MAX)")]
-		public string Comment
-		{
-			get
-			{
-				return this._Comment;
-			}
-			set
-			{
-				if ((this._Comment != value))
-				{
-					this.OnCommentChanging(value);
-					this.SendPropertyChanging();
-					this._Comment = value;
-					this.SendPropertyChanged("Comment");
-					this.OnCommentChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CommentDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> CommentDate
-		{
-			get
-			{
-				return this._CommentDate;
-			}
-			set
-			{
-				if ((this._CommentDate != value))
-				{
-					this.OnCommentDateChanging(value);
-					this.SendPropertyChanging();
-					this._CommentDate = value;
-					this.SendPropertyChanged("CommentDate");
-					this.OnCommentDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaDoAn", DbType="Int")]
-		public System.Nullable<int> MaDoAn
-		{
-			get
-			{
-				return this._MaDoAn;
-			}
-			set
-			{
-				if ((this._MaDoAn != value))
-				{
-					this.OnMaDoAnChanging(value);
-					this.SendPropertyChanging();
-					this._MaDoAn = value;
-					this.SendPropertyChanged("MaDoAn");
-					this.OnMaDoAnChanged();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_makh", DbType="Int NOT NULL")]
 		public int makh
 		{
@@ -270,6 +195,46 @@ namespace ReviewFood.Models
 					this._makh = value;
 					this.SendPropertyChanged("makh");
 					this.OnmakhChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Commentbody", DbType="NVarChar(MAX)")]
+		public string Commentbody
+		{
+			get
+			{
+				return this._Commentbody;
+			}
+			set
+			{
+				if ((this._Commentbody != value))
+				{
+					this.OnCommentbodyChanging(value);
+					this.SendPropertyChanging();
+					this._Commentbody = value;
+					this.SendPropertyChanged("Commentbody");
+					this.OnCommentbodyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CommentDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CommentDate
+		{
+			get
+			{
+				return this._CommentDate;
+			}
+			set
+			{
+				if ((this._CommentDate != value))
+				{
+					this.OnCommentDateChanging(value);
+					this.SendPropertyChanging();
+					this._CommentDate = value;
+					this.SendPropertyChanged("CommentDate");
+					this.OnCommentDateChanged();
 				}
 			}
 		}
@@ -314,22 +279,22 @@ namespace ReviewFood.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_isLike", DbType="Bit")]
-		public System.Nullable<bool> isLike
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[like]", Storage="_like", DbType="Bit")]
+		public System.Nullable<bool> like
 		{
 			get
 			{
-				return this._isLike;
+				return this._like;
 			}
 			set
 			{
-				if ((this._isLike != value))
+				if ((this._like != value))
 				{
-					this.OnisLikeChanging(value);
+					this.OnlikeChanging(value);
 					this.SendPropertyChanging();
-					this._isLike = value;
-					this.SendPropertyChanged("isLike");
-					this.OnisLikeChanged();
+					this._like = value;
+					this.SendPropertyChanged("like");
+					this.OnlikeChanged();
 				}
 			}
 		}
@@ -389,21 +354,27 @@ namespace ReviewFood.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.QuanAn")]
-	public partial class QuanAn : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Post")]
+	public partial class Post : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _MaQuan;
+		private int _PostID;
 		
-		private string _TenQuan;
+		private string _tieude;
 		
-		private System.Nullable<int> _makh;
+		private string _hinh;
 		
-		private string _DiaChi;
+		private string _noidung;
 		
-		private EntitySet<DoAn> _DoAns;
+		private System.Nullable<System.DateTime> _ngaytailen;
+		
+		private System.Nullable<bool> _islikep;
+		
+		private long _CommentID;
+		
+		private int _makh;
 		
 		private EntityRef<NguoiDung> _NguoiDung;
 		
@@ -411,311 +382,66 @@ namespace ReviewFood.Models
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnMaQuanChanging(int value);
-    partial void OnMaQuanChanged();
-    partial void OnTenQuanChanging(string value);
-    partial void OnTenQuanChanged();
-    partial void OnmakhChanging(System.Nullable<int> value);
+    partial void OnPostIDChanging(int value);
+    partial void OnPostIDChanged();
+    partial void OntieudeChanging(string value);
+    partial void OntieudeChanged();
+    partial void OnhinhChanging(string value);
+    partial void OnhinhChanged();
+    partial void OnnoidungChanging(string value);
+    partial void OnnoidungChanged();
+    partial void OnngaytailenChanging(System.Nullable<System.DateTime> value);
+    partial void OnngaytailenChanged();
+    partial void OnislikepChanging(System.Nullable<bool> value);
+    partial void OnislikepChanged();
+    partial void OnCommentIDChanging(long value);
+    partial void OnCommentIDChanged();
+    partial void OnmakhChanging(int value);
     partial void OnmakhChanged();
-    partial void OnDiaChiChanging(string value);
-    partial void OnDiaChiChanged();
     #endregion
 		
-		public QuanAn()
+		public Post()
 		{
-			this._DoAns = new EntitySet<DoAn>(new Action<DoAn>(this.attach_DoAns), new Action<DoAn>(this.detach_DoAns));
 			this._NguoiDung = default(EntityRef<NguoiDung>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaQuan", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int MaQuan
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PostID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int PostID
 		{
 			get
 			{
-				return this._MaQuan;
+				return this._PostID;
 			}
 			set
 			{
-				if ((this._MaQuan != value))
+				if ((this._PostID != value))
 				{
-					this.OnMaQuanChanging(value);
+					this.OnPostIDChanging(value);
 					this.SendPropertyChanging();
-					this._MaQuan = value;
-					this.SendPropertyChanged("MaQuan");
-					this.OnMaQuanChanged();
+					this._PostID = value;
+					this.SendPropertyChanged("PostID");
+					this.OnPostIDChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenQuan", DbType="NVarChar(100) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string TenQuan
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tieude", DbType="NVarChar(100)")]
+		public string tieude
 		{
 			get
 			{
-				return this._TenQuan;
+				return this._tieude;
 			}
 			set
 			{
-				if ((this._TenQuan != value))
+				if ((this._tieude != value))
 				{
-					this.OnTenQuanChanging(value);
+					this.OntieudeChanging(value);
 					this.SendPropertyChanging();
-					this._TenQuan = value;
-					this.SendPropertyChanged("TenQuan");
-					this.OnTenQuanChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_makh", DbType="Int")]
-		public System.Nullable<int> makh
-		{
-			get
-			{
-				return this._makh;
-			}
-			set
-			{
-				if ((this._makh != value))
-				{
-					if (this._NguoiDung.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnmakhChanging(value);
-					this.SendPropertyChanging();
-					this._makh = value;
-					this.SendPropertyChanged("makh");
-					this.OnmakhChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DiaChi", DbType="NVarChar(100)")]
-		public string DiaChi
-		{
-			get
-			{
-				return this._DiaChi;
-			}
-			set
-			{
-				if ((this._DiaChi != value))
-				{
-					this.OnDiaChiChanging(value);
-					this.SendPropertyChanging();
-					this._DiaChi = value;
-					this.SendPropertyChanged("DiaChi");
-					this.OnDiaChiChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="QuanAn_DoAn", Storage="_DoAns", ThisKey="MaQuan,TenQuan", OtherKey="MaQuan,TenQuan")]
-		public EntitySet<DoAn> DoAns
-		{
-			get
-			{
-				return this._DoAns;
-			}
-			set
-			{
-				this._DoAns.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NguoiDung_QuanAn", Storage="_NguoiDung", ThisKey="makh", OtherKey="makh", IsForeignKey=true)]
-		public NguoiDung NguoiDung
-		{
-			get
-			{
-				return this._NguoiDung.Entity;
-			}
-			set
-			{
-				NguoiDung previousValue = this._NguoiDung.Entity;
-				if (((previousValue != value) 
-							|| (this._NguoiDung.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._NguoiDung.Entity = null;
-						previousValue.QuanAns.Remove(this);
-					}
-					this._NguoiDung.Entity = value;
-					if ((value != null))
-					{
-						value.QuanAns.Add(this);
-						this._makh = value.makh;
-					}
-					else
-					{
-						this._makh = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("NguoiDung");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_DoAns(DoAn entity)
-		{
-			this.SendPropertyChanging();
-			entity.QuanAn = this;
-		}
-		
-		private void detach_DoAns(DoAn entity)
-		{
-			this.SendPropertyChanging();
-			entity.QuanAn = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.DoAn")]
-	public partial class DoAn : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _MaDoAn;
-		
-		private string _TenDoAn;
-		
-		private int _MaQuan;
-		
-		private string _TenQuan;
-		
-		private string _hinh;
-		
-		private EntityRef<QuanAn> _QuanAn;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnMaDoAnChanging(int value);
-    partial void OnMaDoAnChanged();
-    partial void OnTenDoAnChanging(string value);
-    partial void OnTenDoAnChanged();
-    partial void OnMaQuanChanging(int value);
-    partial void OnMaQuanChanged();
-    partial void OnTenQuanChanging(string value);
-    partial void OnTenQuanChanged();
-    partial void OnhinhChanging(string value);
-    partial void OnhinhChanged();
-    #endregion
-		
-		public DoAn()
-		{
-			this._QuanAn = default(EntityRef<QuanAn>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaDoAn", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int MaDoAn
-		{
-			get
-			{
-				return this._MaDoAn;
-			}
-			set
-			{
-				if ((this._MaDoAn != value))
-				{
-					this.OnMaDoAnChanging(value);
-					this.SendPropertyChanging();
-					this._MaDoAn = value;
-					this.SendPropertyChanged("MaDoAn");
-					this.OnMaDoAnChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenDoAn", DbType="NVarChar(100) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string TenDoAn
-		{
-			get
-			{
-				return this._TenDoAn;
-			}
-			set
-			{
-				if ((this._TenDoAn != value))
-				{
-					this.OnTenDoAnChanging(value);
-					this.SendPropertyChanging();
-					this._TenDoAn = value;
-					this.SendPropertyChanged("TenDoAn");
-					this.OnTenDoAnChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaQuan", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
-		public int MaQuan
-		{
-			get
-			{
-				return this._MaQuan;
-			}
-			set
-			{
-				if ((this._MaQuan != value))
-				{
-					if (this._QuanAn.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMaQuanChanging(value);
-					this.SendPropertyChanging();
-					this._MaQuan = value;
-					this.SendPropertyChanged("MaQuan");
-					this.OnMaQuanChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenQuan", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string TenQuan
-		{
-			get
-			{
-				return this._TenQuan;
-			}
-			set
-			{
-				if ((this._TenQuan != value))
-				{
-					if (this._QuanAn.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnTenQuanChanging(value);
-					this.SendPropertyChanging();
-					this._TenQuan = value;
-					this.SendPropertyChanged("TenQuan");
-					this.OnTenQuanChanged();
+					this._tieude = value;
+					this.SendPropertyChanged("tieude");
+					this.OntieudeChanged();
 				}
 			}
 		}
@@ -740,38 +466,140 @@ namespace ReviewFood.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="QuanAn_DoAn", Storage="_QuanAn", ThisKey="MaQuan,TenQuan", OtherKey="MaQuan,TenQuan", IsForeignKey=true)]
-		public QuanAn QuanAn
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_noidung", DbType="NVarChar(MAX)")]
+		public string noidung
 		{
 			get
 			{
-				return this._QuanAn.Entity;
+				return this._noidung;
 			}
 			set
 			{
-				QuanAn previousValue = this._QuanAn.Entity;
+				if ((this._noidung != value))
+				{
+					this.OnnoidungChanging(value);
+					this.SendPropertyChanging();
+					this._noidung = value;
+					this.SendPropertyChanged("noidung");
+					this.OnnoidungChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ngaytailen", DbType="DateTime")]
+		public System.Nullable<System.DateTime> ngaytailen
+		{
+			get
+			{
+				return this._ngaytailen;
+			}
+			set
+			{
+				if ((this._ngaytailen != value))
+				{
+					this.OnngaytailenChanging(value);
+					this.SendPropertyChanging();
+					this._ngaytailen = value;
+					this.SendPropertyChanged("ngaytailen");
+					this.OnngaytailenChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_islikep", DbType="Bit")]
+		public System.Nullable<bool> islikep
+		{
+			get
+			{
+				return this._islikep;
+			}
+			set
+			{
+				if ((this._islikep != value))
+				{
+					this.OnislikepChanging(value);
+					this.SendPropertyChanging();
+					this._islikep = value;
+					this.SendPropertyChanged("islikep");
+					this.OnislikepChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CommentID", DbType="BigInt NOT NULL")]
+		public long CommentID
+		{
+			get
+			{
+				return this._CommentID;
+			}
+			set
+			{
+				if ((this._CommentID != value))
+				{
+					this.OnCommentIDChanging(value);
+					this.SendPropertyChanging();
+					this._CommentID = value;
+					this.SendPropertyChanged("CommentID");
+					this.OnCommentIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_makh", DbType="Int NOT NULL")]
+		public int makh
+		{
+			get
+			{
+				return this._makh;
+			}
+			set
+			{
+				if ((this._makh != value))
+				{
+					if (this._NguoiDung.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnmakhChanging(value);
+					this.SendPropertyChanging();
+					this._makh = value;
+					this.SendPropertyChanged("makh");
+					this.OnmakhChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NguoiDung_Post", Storage="_NguoiDung", ThisKey="makh", OtherKey="makh", IsForeignKey=true)]
+		public NguoiDung NguoiDung
+		{
+			get
+			{
+				return this._NguoiDung.Entity;
+			}
+			set
+			{
+				NguoiDung previousValue = this._NguoiDung.Entity;
 				if (((previousValue != value) 
-							|| (this._QuanAn.HasLoadedOrAssignedValue == false)))
+							|| (this._NguoiDung.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._QuanAn.Entity = null;
-						previousValue.DoAns.Remove(this);
+						this._NguoiDung.Entity = null;
+						previousValue.Posts.Remove(this);
 					}
-					this._QuanAn.Entity = value;
+					this._NguoiDung.Entity = value;
 					if ((value != null))
 					{
-						value.DoAns.Add(this);
-						this._MaQuan = value.MaQuan;
-						this._TenQuan = value.TenQuan;
+						value.Posts.Add(this);
+						this._makh = value.makh;
 					}
 					else
 					{
-						this._MaQuan = default(int);
-						this._TenQuan = default(string);
+						this._makh = default(int);
 					}
-					this.SendPropertyChanged("QuanAn");
+					this.SendPropertyChanged("NguoiDung");
 				}
 			}
 		}
@@ -803,9 +631,9 @@ namespace ReviewFood.Models
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _idyeuthich;
+		private int _idFavorite;
 		
-		private string _tenquanyeuthich;
+		private string _name;
 		
 		private int _makh;
 		
@@ -815,10 +643,10 @@ namespace ReviewFood.Models
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnidyeuthichChanging(int value);
-    partial void OnidyeuthichChanged();
-    partial void OntenquanyeuthichChanging(string value);
-    partial void OntenquanyeuthichChanged();
+    partial void OnidFavoriteChanging(int value);
+    partial void OnidFavoriteChanged();
+    partial void OnnameChanging(string value);
+    partial void OnnameChanged();
     partial void OnmakhChanging(int value);
     partial void OnmakhChanged();
     #endregion
@@ -829,42 +657,42 @@ namespace ReviewFood.Models
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idyeuthich", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int idyeuthich
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idFavorite", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int idFavorite
 		{
 			get
 			{
-				return this._idyeuthich;
+				return this._idFavorite;
 			}
 			set
 			{
-				if ((this._idyeuthich != value))
+				if ((this._idFavorite != value))
 				{
-					this.OnidyeuthichChanging(value);
+					this.OnidFavoriteChanging(value);
 					this.SendPropertyChanging();
-					this._idyeuthich = value;
-					this.SendPropertyChanged("idyeuthich");
-					this.OnidyeuthichChanged();
+					this._idFavorite = value;
+					this.SendPropertyChanged("idFavorite");
+					this.OnidFavoriteChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tenquanyeuthich", DbType="NVarChar(100)")]
-		public string tenquanyeuthich
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(100)")]
+		public string name
 		{
 			get
 			{
-				return this._tenquanyeuthich;
+				return this._name;
 			}
 			set
 			{
-				if ((this._tenquanyeuthich != value))
+				if ((this._name != value))
 				{
-					this.OntenquanyeuthichChanging(value);
+					this.OnnameChanging(value);
 					this.SendPropertyChanging();
-					this._tenquanyeuthich = value;
-					this.SendPropertyChanged("tenquanyeuthich");
-					this.OntenquanyeuthichChanged();
+					this._name = value;
+					this.SendPropertyChanged("name");
+					this.OnnameChanged();
 				}
 			}
 		}
@@ -976,7 +804,7 @@ namespace ReviewFood.Models
 		
 		private EntitySet<BinhLuan> _BinhLuans;
 		
-		private EntitySet<QuanAn> _QuanAns;
+		private EntitySet<Post> _Posts;
 		
 		private EntitySet<Favorite> _Favorites;
 		
@@ -1009,7 +837,7 @@ namespace ReviewFood.Models
 		public NguoiDung()
 		{
 			this._BinhLuans = new EntitySet<BinhLuan>(new Action<BinhLuan>(this.attach_BinhLuans), new Action<BinhLuan>(this.detach_BinhLuans));
-			this._QuanAns = new EntitySet<QuanAn>(new Action<QuanAn>(this.attach_QuanAns), new Action<QuanAn>(this.detach_QuanAns));
+			this._Posts = new EntitySet<Post>(new Action<Post>(this.attach_Posts), new Action<Post>(this.detach_Posts));
 			this._Favorites = new EntitySet<Favorite>(new Action<Favorite>(this.attach_Favorites), new Action<Favorite>(this.detach_Favorites));
 			OnCreated();
 		}
@@ -1227,16 +1055,16 @@ namespace ReviewFood.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NguoiDung_QuanAn", Storage="_QuanAns", ThisKey="makh", OtherKey="makh")]
-		public EntitySet<QuanAn> QuanAns
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NguoiDung_Post", Storage="_Posts", ThisKey="makh", OtherKey="makh")]
+		public EntitySet<Post> Posts
 		{
 			get
 			{
-				return this._QuanAns;
+				return this._Posts;
 			}
 			set
 			{
-				this._QuanAns.Assign(value);
+				this._Posts.Assign(value);
 			}
 		}
 		
@@ -1285,13 +1113,13 @@ namespace ReviewFood.Models
 			entity.NguoiDung = null;
 		}
 		
-		private void attach_QuanAns(QuanAn entity)
+		private void attach_Posts(Post entity)
 		{
 			this.SendPropertyChanging();
 			entity.NguoiDung = this;
 		}
 		
-		private void detach_QuanAns(QuanAn entity)
+		private void detach_Posts(Post entity)
 		{
 			this.SendPropertyChanging();
 			entity.NguoiDung = null;

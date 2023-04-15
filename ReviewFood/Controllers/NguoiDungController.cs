@@ -58,33 +58,57 @@ namespace ReviewFood.Controllers
             return View();
         }
         [HttpPost]
+        //public ActionResult DangNhap(FormCollection collection)
+        //{
+        //    var tendangnhap = collection["tendangnhap"];
+        //    var matkhau = collection["matkhau"];
+        //    NguoiDung kh = db.NguoiDungs.SingleOrDefault(n => n.tendangnhap == tendangnhap && n.matkhau == matkhau);
+        //    if (kh != null)
+        //    {
+        //        if (kh.tendangnhap == "supermouse0985")
+        //        {
+        //            return RedirectToAction("Index", "Admin", "Admin");
+        //        }
+
+        //        //ViewBag.ThongBao = "Dang nhap thanh cong!";
+        //        ViewData["Thông báo"] = "Abưadwadwđ";
+        //        Session["TaiKhoan"] = kh;
+        //        return RedirectToAction("Home", "Home");
+        //    }
+        //    else
+        //    {
+        //        ViewBag.ThongBao = String.Format("ten dang nhap hoac mat khau khong dung");
+        //        return RedirectToAction("DangNhap", "NguoiDung");
+        //    }
+        //    //if (kh.tendangnhap == "")
+        //    //{
+        //    //    ViewData["Thông bao"] = "Abưadwadwđ";
+        //    //    return RedirectToAction("DangNhap", "NguoiDung");
+        //    //}
+        //}
         public ActionResult DangNhap(FormCollection collection)
         {
-            var tendangnhap = collection["tendangnhap"];
-            var matkhau = collection["matkhau"];
-            NguoiDung kh = db.NguoiDungs.SingleOrDefault(n => n.tendangnhap == tendangnhap && n.matkhau == matkhau);
+            var taikhoan = collection["tendangnhap"];
+            var MatKhau = collection["matkhau"];
+            NguoiDung kh = db.NguoiDungs.SingleOrDefault(n => n.tendangnhap == taikhoan && n.matkhau == MatKhau);
             if (kh != null)
             {
                 if (kh.tendangnhap == "supermouse0985")
                 {
-                    return RedirectToAction("Index", "Home");
+                    Session["NguoiDung"] = kh;
+                    return RedirectToAction("Index", "Admin/Admin");
                 }
-
-                //ViewBag.ThongBao = "Dang nhap thanh cong!";
-                ViewData["Thông báo"] = "Abưadwadwđ";
-                Session["TaiKhoan"] = kh;
-                return RedirectToAction("Home", "Home");
+                else
+                {
+                    Session["NguoiDung"] = kh;
+                    return RedirectToAction("Index", "SanPham");
+                }
             }
             else
             {
-                ViewBag.ThongBao = String.Format("ten dang nhap hoac mat khau khong dung");
-                return RedirectToAction("DangNhap", "NguoiDung");
+                ViewData["ThongBao"] = "Tên đăng nhập hoặc mật khẩu không đúng";
+                return this.DangNhap();
             }
-            //if (kh.tendangnhap == "")
-            //{
-            //    ViewData["Thông bao"] = "Abưadwadwđ";
-            //    return RedirectToAction("DangNhap", "NguoiDung");
-            //}
         }
         public ActionResult DangXuat()
         {

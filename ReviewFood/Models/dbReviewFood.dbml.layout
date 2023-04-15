@@ -1,63 +1,50 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="dbReviewFood">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.875" name="dbReviewFood">
   <DataContextMoniker Name="/dbReviewFoodDataContext" />
   <nestedChildShapes>
-    <classShape Id="2124cc37-2da6-412f-8e4b-ae7506505a04" absoluteBounds="3.5, 5.875, 2, 2.3478011067708344">
+    <classShape Id="c15b6087-9ac5-4157-b52c-3c72db46b0d8" absoluteBounds="3.5, 3.375, 2, 2.1554996744791666">
       <DataClassMoniker Name="/dbReviewFoodDataContext/BinhLuan" />
       <nestedChildShapes>
-        <elementListCompartment Id="3e662278-7534-49a3-8d6e-ce8575afe1e0" absoluteBounds="3.515, 6.335, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="d8526f3d-6f5a-47af-8c2a-421e0f0629de" absoluteBounds="3.515, 3.835, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="6a562a67-5c68-4de4-86e3-26d079f0b2c8" absoluteBounds="3.5, 3.375, 2, 1.5785953776041666">
-      <DataClassMoniker Name="/dbReviewFoodDataContext/QuanAn" />
+    <classShape Id="d5f62b56-473f-4daf-bae6-ef1fc9da70e8" absoluteBounds="3.5, 6.25, 2, 2.3478011067708344">
+      <DataClassMoniker Name="/dbReviewFoodDataContext/Post" />
       <nestedChildShapes>
-        <elementListCompartment Id="4267e963-fde6-43a6-9356-56db4e2290b0" absoluteBounds="3.515, 3.835, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="9135a8b5-f2b2-445e-b74a-e5a554224e58" absoluteBounds="3.515, 6.71, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="40634607-e190-4eb6-89e6-1297b8b34e9a" absoluteBounds="6.25, 3.25, 2, 1.7708968098958326">
-      <DataClassMoniker Name="/dbReviewFoodDataContext/DoAn" />
-      <nestedChildShapes>
-        <elementListCompartment Id="3571d7fe-4ed1-40f4-976d-a7c8b735c198" absoluteBounds="6.265, 3.71, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="374ef043-46a2-45d9-917b-de0463e17c00" absoluteBounds="3.5, 1.125, 2, 1.3862939453125">
+    <classShape Id="f516f757-5dff-4ecc-bb51-311132c48855" absoluteBounds="3.5, 1.25, 2, 1.3862939453125">
       <DataClassMoniker Name="/dbReviewFoodDataContext/Favorite" />
       <nestedChildShapes>
-        <elementListCompartment Id="1396a5d3-c53c-49e0-8109-97c41fbabed5" absoluteBounds="3.515, 1.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="ec4adf00-8cee-45d7-9bc6-dd33fa08e964" absoluteBounds="3.515, 1.71, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="d8bc6e98-7226-4133-ba34-62f252c8ef43" absoluteBounds="0.75, 3.25, 2, 2.7324039713541666">
+    <classShape Id="97933c43-51cd-4708-bf55-01c547b81864" absoluteBounds="0.75, 3.5, 2, 2.7324039713541666">
       <DataClassMoniker Name="/dbReviewFoodDataContext/NguoiDung" />
       <nestedChildShapes>
-        <elementListCompartment Id="61e50021-1981-49cb-a279-82d5c99b48ca" absoluteBounds="0.765, 3.71, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="bb99cc37-d4f6-413c-ada2-2bc2e1f6d4f3" absoluteBounds="0.765, 3.96, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(5.5 : 4.16429768880208); (6.25 : 4.16429768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/dbReviewFoodDataContext/QuanAn/QuanAn_DoAn" />
-      <nodes>
-        <classShapeMoniker Id="6a562a67-5c68-4de4-86e3-26d079f0b2c8" />
-        <classShapeMoniker Id="40634607-e190-4eb6-89e6-1297b8b34e9a" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(1.75 : 5.98240397135417); (1.75 : 7.1026030390625); (3.5 : 7.1026030390625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 4.51524983723958); (3.5 : 4.51524983723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/dbReviewFoodDataContext/NguoiDung/NguoiDung_BinhLuan" />
       <nodes>
-        <classShapeMoniker Id="d8bc6e98-7226-4133-ba34-62f252c8ef43" />
-        <classShapeMoniker Id="2124cc37-2da6-412f-8e4b-ae7506505a04" />
+        <classShapeMoniker Id="97933c43-51cd-4708-bf55-01c547b81864" />
+        <classShapeMoniker Id="c15b6087-9ac5-4157-b52c-3c72db46b0d8" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 4.16429768880208); (3.5 : 4.16429768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/dbReviewFoodDataContext/NguoiDung/NguoiDung_QuanAn" />
+    <associationConnector edgePoints="[(1.75 : 6.23240397135417); (1.75 : 7.42390055338542); (3.5 : 7.42390055338542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dbReviewFoodDataContext/NguoiDung/NguoiDung_Post" />
       <nodes>
-        <classShapeMoniker Id="d8bc6e98-7226-4133-ba34-62f252c8ef43" />
-        <classShapeMoniker Id="6a562a67-5c68-4de4-86e3-26d079f0b2c8" />
+        <classShapeMoniker Id="97933c43-51cd-4708-bf55-01c547b81864" />
+        <classShapeMoniker Id="d5f62b56-473f-4daf-bae6-ef1fc9da70e8" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(1.75 : 3.25); (1.75 : 1.81814697265625); (3.5 : 1.81814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(1.75 : 3.5); (1.75 : 1.94314697265625); (3.5 : 1.94314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/dbReviewFoodDataContext/NguoiDung/NguoiDung_Favorite" />
       <nodes>
-        <classShapeMoniker Id="d8bc6e98-7226-4133-ba34-62f252c8ef43" />
-        <classShapeMoniker Id="374ef043-46a2-45d9-917b-de0463e17c00" />
+        <classShapeMoniker Id="97933c43-51cd-4708-bf55-01c547b81864" />
+        <classShapeMoniker Id="f516f757-5dff-4ecc-bb51-311132c48855" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

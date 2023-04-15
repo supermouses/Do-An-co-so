@@ -16,37 +16,22 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Trang Chủ", "Home", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Trang Chủ", "Index", "Admin/Admin", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     @*<li>@Html.ActionLink("Home", "Home", "Home")</li>*@
-                    @*<li>@Html.ActionLink("Login", "DangNhap", "NguoiDung")</li>
-            <li>@Html.ActionLink("SignUp", "DangKy", "NguoiDung")</li>*@
+                    @*<li>@Html.ActionLink("Login", "DangNhap", "DangNhap/NguoiDung")</li>*@
+                        @*<li>@Html.ActionLink("SignUp", "DangKy", "NguoiDung")</li>*@
                 </ul>
-                @{
-                    var u = Session["TaiKhoan"] as ReviewFood.Models.NguoiDung;
-                }
-                @{
-                    if (u != null)
-                    {
                         <ul class="nav navbar-nav navbar-right">
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Xin chào @u.hoten <span class="caret"></span></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Xin chào Admin <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li class="btn btn-light"><a href="/NguoiDung/DangXuat">Log off</a></li>
                                 </ul>
                             </li>
                         </ul>
-                    }
-                    else
-                    {
-                        <div class="nav navbar-nav navbar-right">
-                            <a class="btn btn-dark" href="/NguoiDung/DangKy"> Đăng ký</a>
-                            <a class="btn btn-light" href="/NguoiDung/Dangnhap"> Đăng nhập</a>
-                        </div>
-                    }
-                }
             </div>
         </div>
     </div>
@@ -54,7 +39,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Trang Home</p>
+            <p>&copy; @DateTime.Now.Year - Trang Admin</p>
         </footer>
     </div>
 
