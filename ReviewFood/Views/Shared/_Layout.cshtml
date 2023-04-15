@@ -25,7 +25,7 @@
             <li>@Html.ActionLink("SignUp", "DangKy", "NguoiDung")</li>*@
                 </ul>
                 @{
-                    var u = Session["TaiKhoan"] as ReviewFood.Models.NguoiDung;
+                    var u = Session["NguoiDung"] as ReviewFood.Models.NguoiDung;
                 }
                 @{
                     if (u != null)

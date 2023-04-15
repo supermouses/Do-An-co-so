@@ -101,7 +101,7 @@ namespace ReviewFood.Controllers
                 else
                 {
                     Session["NguoiDung"] = kh;
-                    return RedirectToAction("Index", "SanPham");
+                    return RedirectToAction("Home", "Home");
                 }
             }
             else
